@@ -11,6 +11,8 @@ container with no packages installed.
 
 Visual refresh: scenes 1-9 of the poster are AI news photographs and
 the top carries a navy masthead band with a gold-rimmed date badge.
+Visual refresh 2: scenes 10-13 are AI news photographs too, so all
+thirteen scenes on the poster are photographic.
 """
 import hashlib
 import os
@@ -55,7 +57,8 @@ def png_size(path):
 def publish():
     """Copy the poster beside this script into the output directory."""
     # The poster lives beside this script; nothing is fetched, drawn
-    # or generated here -- the copy is the whole job.
+    # or generated here -- the copy is the whole job. All thirteen
+    # scene photographs are already baked into entry.png.
     here = Path(__file__).resolve().parent
     poster = here / POSTER
     if not poster.is_file():
