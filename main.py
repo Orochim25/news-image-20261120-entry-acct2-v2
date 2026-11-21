@@ -8,6 +8,9 @@ is unset) and then proves the copy is byte-for-byte identical to the
 original. Nothing else is written anywhere, and the script depends
 on nothing beyond the Python standard library, so it runs in a bare
 container with no packages installed.
+
+Visual refresh: scenes 1-9 of the poster are AI news photographs and
+the top carries a navy masthead band with a gold-rimmed date badge.
 """
 import hashlib
 import os
@@ -23,7 +26,8 @@ PNG_SIGNATURE = b"\x89PNG\r\n\x1a\n"
 
 
 def sha256_file(path):
-    """Hex digest of a file, streamed so big files stay cheap."""
+    """Hex digest of a file, streamed in 64 KiB chunks so big files
+    stay cheap to hash."""
     hasher = hashlib.sha256()
     with open(path, "rb") as stream:
         while True:
@@ -50,6 +54,8 @@ def png_size(path):
 
 def publish():
     """Copy the poster beside this script into the output directory."""
+    # The poster lives beside this script; nothing is fetched, drawn
+    # or generated here -- the copy is the whole job.
     here = Path(__file__).resolve().parent
     poster = here / POSTER
     if not poster.is_file():
